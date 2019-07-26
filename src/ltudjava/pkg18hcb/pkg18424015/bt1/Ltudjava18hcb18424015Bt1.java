@@ -34,38 +34,12 @@ public class Ltudjava18hcb18424015Bt1 {
 //        a.Height = 173;
 //        System.out.println(a.Name);
 
-//          BufferedReader br = new BufferedReader(new FileReader("../Data/Person.csv"));
-//          BufferedWriter bw = new BufferedWriter(new FileWriter("../Data/Output.txt"));
-//		String str ;
-//		while (true)
-//		{
-//			str = br.readLine();
-//			if (str==null)
-//				break;
-//			//System.out.println(str);
-//                        bw.write(str);
-//		}
-        BufferedInputStream bin = null;
-        BufferedOutputStream bout = null;
-        try
-        {
-            bin = new BufferedInputStream( new FileInputStream("../Data/Person.csv"));
-            bout = new BufferedOutputStream( new FileOutputStream("../Data/Output.txt",true));
-            while (true) {
-                    int datum = bin.read();
-                    if (datum == -1)
-                            break;
-                    bout.write(datum);
-            }
-            bout.flush();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            bin.close();
-            bout.close();
-        }
+        
+        //Đọc file
+        SinhVien a = new SinhVien();
+        a.ReadFile("../Data/Person.csv");
+        a.WriteFile("../Data/Person.csv", "../Data/Output.txt");
+
 
     }
     
