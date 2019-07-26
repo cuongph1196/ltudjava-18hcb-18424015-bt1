@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -71,6 +72,25 @@ public class SinhVien {
         } catch (IOException e) {
         } finally {
             br.close();
+            bw.close();
+            System.out.println("Success...");
+        }
+
+    }
+    
+    public void WriteFileFromKey() throws IOException{
+        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = null;
+        try {
+            FileWriter fw = new FileWriter("../Data/Output.txt",true);
+            bw = new BufferedWriter(fw);
+            System.out.println("Hãy nhập thông tin sinh viên:");
+            String value = dataInput.readLine();
+            System.out.println(value);
+            bw.write(value);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
             bw.close();
             System.out.println("Success...");
         }

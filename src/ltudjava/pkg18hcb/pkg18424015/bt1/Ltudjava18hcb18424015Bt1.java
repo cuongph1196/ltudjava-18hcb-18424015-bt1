@@ -38,8 +38,8 @@ public class Ltudjava18hcb18424015Bt1 {
         //Đọc file
         SinhVien a = new SinhVien();
         a.ReadFile("../Data/Person.csv");
-        a.WriteFile("../Data/Person.csv", "../Data/Output.txt");
-
+        //a.WriteFile("../Data/Person.csv", "../Data/Output.txt");
+        a.WriteFileFromKey();
 
     }
     
