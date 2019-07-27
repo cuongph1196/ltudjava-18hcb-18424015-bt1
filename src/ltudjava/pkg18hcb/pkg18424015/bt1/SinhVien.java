@@ -16,6 +16,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
 /**
  *
@@ -84,6 +86,7 @@ public class SinhVien {
         try {
             FileWriter fw = new FileWriter("../Data/Output.txt",true);
             bw = new BufferedWriter(fw);
+//            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("../Data/Output.txt"), StandardCharsets.UTF_8));
             System.out.println("Hãy nhập thông tin sinh viên:");
             String value = dataInput.readLine();
             System.out.println(value);
