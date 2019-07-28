@@ -46,8 +46,12 @@ public class Ltudjava18hcb18424015Bt1 {
 //        a.WriteFileFromKey("18HCB");
         
         //TKB
-        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
-        tkb.WriteFile("../Data/TKB.csv", "18HCB");
+//        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+//        tkb.WriteFile("../Data/TKB.csv", "18HCB");
+        
+        //Mon hoc - lop
+        Lop_Monhoc lmh = new Lop_Monhoc();
+        lmh.DeleteSV("CTT001", "18HCB", "1742001");
         
     }
 }

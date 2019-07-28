@@ -26,7 +26,7 @@ public class ThoiKhoaBieu {
     public void WriteFile(String pathInput, String className) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        String pathOutput = "../Data/"+ className +".txt";
+        String pathOutput = "../Data/TKB_"+ className +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
@@ -45,7 +45,7 @@ public class ThoiKhoaBieu {
                 while((a = brOutput.readLine()) != null){
                     String[] in=i.split(",");
                     String[] out=a.split(",");
-                    if(in[1].equals(out[1]) == true){
+                    if(in[1].equals(out[1])){
                         flag = false;
                         break;
                     }
