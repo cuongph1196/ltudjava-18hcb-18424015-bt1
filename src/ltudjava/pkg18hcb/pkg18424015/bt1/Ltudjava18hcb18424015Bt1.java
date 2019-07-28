@@ -9,12 +9,16 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  *
@@ -35,12 +39,15 @@ public class Ltudjava18hcb18424015Bt1 {
 //        System.out.println(a.Name);
 
         
-        //Đọc file
-        SinhVien a = new SinhVien();
-        a.ReadFile("../Data/Person.csv");
-        //a.WriteFile("../Data/Person.csv", "../Data/Output.txt");
-        a.WriteFileFromKey();
-
+        //SV
+//        SinhVien a = new SinhVien();
+//        a.ReadFile("../Data/Person.csv");
+//        //a.WriteFile("../Data/Person.csv", "18HCB");
+//        a.WriteFileFromKey("18HCB");
+        
+        //TKB
+        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+        tkb.WriteFile("../Data/TKB.csv", "18HCB");
+        
     }
-    
 }

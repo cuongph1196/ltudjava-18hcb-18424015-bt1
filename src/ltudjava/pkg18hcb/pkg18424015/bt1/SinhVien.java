@@ -51,9 +51,10 @@ public class SinhVien {
             br.close();
         }
     }
-    public void WriteFile(String pathInput, String pathOutput) throws IOException{
+    public void WriteFile(String pathInput, String className) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
+        String pathOutput = "../Data/"+ className +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
@@ -80,17 +81,26 @@ public class SinhVien {
 
     }
     
-    public void WriteFileFromKey() throws IOException{
-        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in));
+    public void WriteFileFromKey(String className) throws IOException{
+        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         BufferedWriter bw = null;
+        String pathOutput = "../Data/"+ className +".txt";
         try {
-            FileWriter fw = new FileWriter("../Data/Output.txt",true);
+            FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
-//            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("../Data/Output.txt"), StandardCharsets.UTF_8));
+            FileReader frOutput = new FileReader(pathOutput);
+            BufferedReader brOutput = new BufferedReader(frOutput);
+            int a ;
+            if((a = brOutput.read()) != -1){
+            }
+            else{
+                bw.write("STT,MSSV,Họ tên,Giới tính,CMND");
+            }
             System.out.println("Hãy nhập thông tin sinh viên:");
             String value = dataInput.readLine();
             System.out.println(value);
             bw.write(value);
+            
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         } finally {
@@ -99,37 +109,5 @@ public class SinhVien {
         }
 
     }
-    
-    public void Temp() throws IOException{
-        BufferedInputStream bin = null;
-        BufferedOutputStream bout = null;
-        BufferedReader br = null;
-        try
-        {
-            bin = new BufferedInputStream( new FileInputStream("../Data/Person.csv"));
-            br = new BufferedReader(new FileReader("../Data/Person.csv"));
-            bout = new BufferedOutputStream( new FileOutputStream("../Data/Output.txt",true));
-            String str ;
-            while (true) {
-                    int datum = bin.read();
-                    if (datum == -1)
-                            break;
-                    bout.write(datum);
-                    
-                    str = br.readLine();
-			if (str==null)
-				break;
-			System.out.println(str);
-            }
-            bout.flush();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            br.close();
-            bin.close();
-            bout.close();
-        }
-    }
+//    bout.flush();
 }
