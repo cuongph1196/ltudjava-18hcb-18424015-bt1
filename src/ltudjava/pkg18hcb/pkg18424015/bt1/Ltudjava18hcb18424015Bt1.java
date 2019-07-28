@@ -51,7 +51,7 @@ public class Ltudjava18hcb18424015Bt1 {
         
         //Mon hoc - lop
         Lop_Monhoc lmh = new Lop_Monhoc();
-        lmh.DeleteSV("CTT001", "18HCB", "1742001");
-        
+//        lmh.DeleteSV("CTT001", "18HCB", "1742001");
+        lmh.AddSVFromKey("CTT001", "18HCB");
     }
 }

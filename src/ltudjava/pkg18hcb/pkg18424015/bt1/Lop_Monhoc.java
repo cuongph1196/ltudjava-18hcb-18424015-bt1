@@ -12,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 /**
  *
@@ -57,6 +59,42 @@ public class Lop_Monhoc {
                 System.out.println("Failed...");
             }
         }
-
+    }
+    public void AddSVFromKey(String subjectName, String className) throws IOException{
+        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        BufferedWriter bw = null;
+        String path = "../Data/"+ className + "_" + subjectName + ".txt";
+        try {
+            FileWriter fw = new FileWriter(path,true);
+            bw = new BufferedWriter(fw);
+            FileReader frOutput = new FileReader(path);
+            BufferedReader brOutput = new BufferedReader(frOutput);
+            String a;
+            if((a = brOutput.readLine()) != null){
+            }
+            else{
+                bw.write("STT,MSSV,Họ tên,Giới tính,CMND");
+            }
+            System.out.println("Hãy nhập thông tin sinh viên:");
+            String value = dataInput.readLine();
+            boolean flag = true;
+            while((a = brOutput.readLine()) != null){
+                String[] in= value.split(",");
+                String[] out=a.split(",");
+                if(in[1].equals(out[1])){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag == true){
+                bw.write(value);
+                bw.newLine();
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            bw.close();
+            System.out.println("Success...");
+        }
     }
 }

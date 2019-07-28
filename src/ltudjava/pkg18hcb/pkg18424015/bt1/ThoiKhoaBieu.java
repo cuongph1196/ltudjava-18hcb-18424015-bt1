@@ -40,7 +40,6 @@ public class ThoiKhoaBieu {
                 br.readLine();
             }
             while ((i = br.readLine()) != null) {
-//                System.out.println( i);
                 boolean flag = true;
                 while((a = brOutput.readLine()) != null){
                     String[] in=i.split(",");
