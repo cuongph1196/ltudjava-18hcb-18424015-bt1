@@ -23,6 +23,23 @@ public class ThoiKhoaBieu {
     String PhongHoc;
     String Lop;
     
+    public void ReadFile(String className) throws FileNotFoundException, IOException{
+        String pathInput = "../Data/TKB_"+ className +".txt";
+        BufferedReader br = null;
+        try{
+        FileReader fr = new FileReader(pathInput);
+        br = new BufferedReader(fr);
+        int i;
+        while ((i = br.read()) != -1) {
+            System.out.print((char) i);
+        }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            br.close();
+        }
+    }
+    
     public void WriteFile(String pathInput, String className) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;

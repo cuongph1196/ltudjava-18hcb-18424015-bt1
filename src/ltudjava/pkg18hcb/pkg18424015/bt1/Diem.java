@@ -5,39 +5,28 @@
  */
 package ltudjava.pkg18hcb.pkg18424015.bt1;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
 
 /**
  *
  * @author phanc
  */
-public class SinhVien {
+public class Diem {
     int STT;
     String MSSV;
     String HoTen;
-    boolean GioiTinh;
-    String CMND;
+    int DiemGK;
+    int DiemCK;
+    int DiemKhac;
+    float DiemTong;
     
-    public String GetMSSV(){
-        return MSSV;
-    }
-    public String GetHoTen(){
-        return HoTen;
-    }
-    public void ReadFile(String className) throws FileNotFoundException, IOException{
-        String pathInput = "../Data/"+ className +".txt";
+    public void ReadFile(String className, String subjectName) throws FileNotFoundException, IOException{
+        String pathInput = "../Data/DIEM_"+ className + "_" + subjectName +".txt";
         BufferedReader br = null;
         try{
         FileReader fr = new FileReader(pathInput);
@@ -52,10 +41,11 @@ public class SinhVien {
             br.close();
         }
     }
-    public void WriteFile(String pathInput, String className) throws IOException{
+    
+    public void WriteFile(String pathInput, String className, String subjectName) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        String pathOutput = "../Data/"+ className +".txt";
+        String pathOutput = "../Data/DIEM_"+ className+ "_" + subjectName +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
@@ -90,44 +80,5 @@ public class SinhVien {
             bw.close();
             System.out.println("Success...");
         }
-    }
-    
-    public void WriteFileFromKey(String className) throws IOException{
-        BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter bw = null;
-        String pathOutput = "../Data/"+ className +".txt";
-        try {
-            FileWriter fw = new FileWriter(pathOutput,true);
-            bw = new BufferedWriter(fw);
-            FileReader frOutput = new FileReader(pathOutput);
-            BufferedReader brOutput = new BufferedReader(frOutput);
-            String a;
-            if((a = brOutput.readLine()) != null){
-            }
-            else{
-                bw.write("STT,MSSV,Họ tên,Giới tính,CMND");
-            }
-            System.out.println("Hãy nhập thông tin sinh viên:");
-            String value = dataInput.readLine();
-            boolean flag = true;
-            while((a = brOutput.readLine()) != null){
-                String[] in= value.split(",");
-                String[] out=a.split(",");
-                if(in[1].equals(out[1])){
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag == true){
-                bw.write(value);
-                bw.newLine();
-            }
-        } catch (FileNotFoundException e) {
-        } catch (IOException e) {
-        } finally {
-            bw.close();
-            System.out.println("Success...");
-        }
-
     }
 }

@@ -40,18 +40,28 @@ public class Ltudjava18hcb18424015Bt1 {
 
         
         //SV
-//        SinhVien a = new SinhVien();
+        SinhVien a = new SinhVien();
 //        a.ReadFile("../Data/Person.csv");
-//        //a.WriteFile("../Data/Person.csv", "18HCB");
+        //xem ds lớp
+//        a.ReadFile("18HCB");
+//        a.WriteFile("../Data/Person.csv", "18HCB");
 //        a.WriteFileFromKey("18HCB");
         
         //TKB
-//        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
 //        tkb.WriteFile("../Data/TKB.csv", "18HCB");
+//        tkb.ReadFile("18HCB");
         
         //Mon hoc - lop
         Lop_Monhoc lmh = new Lop_Monhoc();
 //        lmh.DeleteSV("CTT001", "18HCB", "1742001");
-        lmh.AddSVFromKey("CTT001", "18HCB");
+//        lmh.AddSVFromKey("CTT001", "18HCB");
+        //xem ds lớp môn học
+//        lmh.ReadFile("18HCB","CTT001");
+
+        //Diem
+        Diem d = new Diem();
+//        d.WriteFile("../Data/Diem.csv", "18HCB", "CTT001");
+        d.ReadFile("18HCB","CTT001");
     }
 }

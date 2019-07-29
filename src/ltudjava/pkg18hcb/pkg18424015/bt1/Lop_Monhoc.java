@@ -26,6 +26,23 @@ public class Lop_Monhoc {
     boolean GioiTinh;
     String CMND;
     
+    public void ReadFile(String className, String subjectName) throws FileNotFoundException, IOException{
+        String pathInput = "../Data/"+ className + "_" + subjectName +".txt";
+        BufferedReader br = null;
+        try{
+        FileReader fr = new FileReader(pathInput);
+        br = new BufferedReader(fr);
+        int i;
+        while ((i = br.read()) != -1) {
+            System.out.print((char) i);
+        }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            br.close();
+        }
+    }
+    
     public void DeleteSV(String subjectName, String className, String MSSV) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
