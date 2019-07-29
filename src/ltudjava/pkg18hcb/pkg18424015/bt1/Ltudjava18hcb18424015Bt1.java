@@ -62,6 +62,8 @@ public class Ltudjava18hcb18424015Bt1 {
         //Diem
         Diem d = new Diem();
 //        d.WriteFile("../Data/Diem.csv", "18HCB", "CTT001");
-        d.ReadFile("18HCB","CTT001");
+//        d.ReadFile("18HCB","CTT001");
+//        d.XepLoaiSV("18HCB","CTT001");
+        d.ThongKeSV("18HCB","CTT001");
     }
 }
