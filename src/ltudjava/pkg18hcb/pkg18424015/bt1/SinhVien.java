@@ -5,18 +5,13 @@
  */
 package ltudjava.pkg18hcb.pkg18424015.bt1;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -65,8 +60,13 @@ public class SinhVien {
             BufferedReader brOutput = new BufferedReader(frOutput);
             String i;
             String a ;
-            if((a = brOutput.readLine()) != null){
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
                 br.readLine();
+            }
+            else{
+                bw.write(br.readLine());
+                bw.newLine();
             }
             while ((i = br.readLine()) != null) {
                 boolean flag = true;
@@ -102,10 +102,12 @@ public class SinhVien {
             FileReader frOutput = new FileReader(pathOutput);
             BufferedReader brOutput = new BufferedReader(frOutput);
             String a;
-            if((a = brOutput.readLine()) != null){
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
             }
             else{
                 bw.write("STT,MSSV,Họ tên,Giới tính,CMND");
+                bw.newLine();
             }
             System.out.println("Hãy nhập thông tin sinh viên:");
             String value = dataInput.readLine();

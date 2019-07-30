@@ -53,8 +53,13 @@ public class ThoiKhoaBieu {
             BufferedReader brOutput = new BufferedReader(frOutput);
             String i;
             String a ;
-            if((a = brOutput.readLine()) != null){
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
                 br.readLine();
+            }
+            else{
+                bw.write(br.readLine());
+                bw.newLine();
             }
             while ((i = br.readLine()) != null) {
                 boolean flag = true;

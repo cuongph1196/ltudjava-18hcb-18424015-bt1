@@ -56,8 +56,13 @@ public class Diem {
             BufferedReader brOutput = new BufferedReader(frOutput);
             String i;
             String a ;
-            if((a = brOutput.readLine()) != null){
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
                 br.readLine();
+            }
+            else{
+                bw.write(br.readLine());
+                bw.newLine();
             }
             while ((i = br.readLine()) != null) {
                 boolean flag = true;
@@ -144,6 +149,44 @@ public class Diem {
         } finally {
             br.close();
             System.out.println("Success...");
+        }
+    }
+    
+    public void UpdateDiemSV(String className, String subjectName, String MSSV, String GK, String CK, String Orther, String Sum) throws IOException{
+        BufferedWriter bw = null;
+        BufferedReader br = null;
+        File path = new File("../Data/DIEM_"+ className + "_" + subjectName + ".txt");
+        File path_temp = new File("../Data/DIEM_"+ className + "_" + subjectName + "_Temp.txt");
+        try {
+            FileReader fr = new FileReader(path);
+            br = new BufferedReader(fr);
+//            System.out.println(br.readLine());
+            FileWriter fw = new FileWriter(path_temp);
+            bw = new BufferedWriter(fw);
+            String i;
+            while ((i = br.readLine()) != null) {
+                String[] in = i.split(",");
+                if((in[1].equals(MSSV))){
+                    bw.write(in[0]+","+in[1]+","+in[2]+","+GK+","+CK+","+Orther+","+ Float.toString(Float.parseFloat(Sum)));
+                    bw.newLine();
+                }
+                else{
+                    bw.write(i);
+                    bw.newLine();
+                }
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            br.close();
+            bw.close();
+            if(path.delete()){
+                boolean successful = path_temp.renameTo(path);
+                if(successful)
+                System.out.println("Success...");
+                else
+                System.out.println("Failed...");
+            }
         }
     }
 }

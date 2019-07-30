@@ -43,7 +43,7 @@ public class Lop_Monhoc {
         }
     }
     
-    public void DeleteSV(String subjectName, String className, String MSSV) throws IOException{
+    public void DeleteSV(String className, String subjectName, String MSSV) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
         File path = new File("../Data/"+ className + "_" + subjectName + ".txt");
@@ -56,7 +56,6 @@ public class Lop_Monhoc {
             bw = new BufferedWriter(fw);
             String i;
             while ((i = br.readLine()) != null) {
-                System.out.println(i);
                 String[] in = i.split(",");
                 if(!(in[1].equals(MSSV))){
                     bw.write(i);
@@ -77,7 +76,7 @@ public class Lop_Monhoc {
             }
         }
     }
-    public void AddSVFromKey(String subjectName, String className) throws IOException{
+    public void AddSVFromKey(String className, String subjectName) throws IOException{
         BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         BufferedWriter bw = null;
         String path = "../Data/"+ className + "_" + subjectName + ".txt";
@@ -87,10 +86,12 @@ public class Lop_Monhoc {
             FileReader frOutput = new FileReader(path);
             BufferedReader brOutput = new BufferedReader(frOutput);
             String a;
-            if((a = brOutput.readLine()) != null){
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
             }
             else{
                 bw.write("STT,MSSV,Họ tên,Giới tính,CMND");
+                bw.newLine();
             }
             System.out.println("Hãy nhập thông tin sinh viên:");
             String value = dataInput.readLine();

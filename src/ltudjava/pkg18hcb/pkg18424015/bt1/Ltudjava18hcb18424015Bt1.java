@@ -31,39 +31,48 @@ public class Ltudjava18hcb18424015Bt1 {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-//        System.out.println("Hello World!");
-//        Person a = new Person();
-//        a.Name = "Phan huy cuong";
-//        a.Age = 22;
-//        a.Height = 173;
-//        System.out.println(a.Name);
-
+//        if(args.length<2){
+//            System.out.println("Vui lòng truyền đúng tham số !!!");
+//        }else{
+//            int funcID = Integer.parseInt(args[0]);//theo thứ tự yêu cầu
+//            SinhVien sv = new SinhVien();
+//            //SV
+//            if(funcID == 1){ //import danh sách lớp
+//                String pathInput = args[1];
+//                String className = args[2];
+//                sv.WriteFile(pathInput, className);
+//            }
+//            else if(funcID == 2){//thêm 1 sv
+//                String className = args[1];
+//                sv.WriteFileFromKey(className);
+//            }
+//        }
         
-        //SV
         SinhVien a = new SinhVien();
-//        a.ReadFile("../Data/Person.csv");
-        //xem ds lớp
-//        a.ReadFile("18HCB");
-//        a.WriteFile("../Data/Person.csv", "18HCB");
-//        a.WriteFileFromKey("18HCB");
-        
-        //TKB
-        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
-//        tkb.WriteFile("../Data/TKB.csv", "18HCB");
-//        tkb.ReadFile("18HCB");
-        
-        //Mon hoc - lop
-        Lop_Monhoc lmh = new Lop_Monhoc();
-//        lmh.DeleteSV("CTT001", "18HCB", "1742001");
-//        lmh.AddSVFromKey("CTT001", "18HCB");
-        //xem ds lớp môn học
-//        lmh.ReadFile("18HCB","CTT001");
+    //        a.ReadFile("../Data/Person.csv");
+            //xem ds lớp
+    //        a.ReadFile("18HCB");
+//            a.WriteFile("../Data/Person.csv", "18HCB");
+//            a.WriteFileFromKey("18HCB");
 
-        //Diem
-        Diem d = new Diem();
-//        d.WriteFile("../Data/Diem.csv", "18HCB", "CTT001");
-//        d.ReadFile("18HCB","CTT001");
-//        d.XepLoaiSV("18HCB","CTT001");
-        d.ThongKeSV("18HCB","CTT001");
+            //TKB
+            ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+//            tkb.WriteFile("../Data/TKB.csv", "18HCB");
+    //        tkb.ReadFile("18HCB");
+
+            //Mon hoc - lop
+            Lop_Monhoc lmh = new Lop_Monhoc();
+    //        lmh.DeleteSV("18HCB", "CTT001", "1742001");
+    //        lmh.AddSVFromKey("18HCB", "CTT001");
+            //xem ds lớp môn học
+    //        lmh.ReadFile("18HCB","CTT001");
+
+            //Diem
+            Diem d = new Diem();
+    //        d.WriteFile("../Data/Diem.csv", "18HCB", "CTT001");
+    //        d.ReadFile("18HCB","CTT001");
+    //        d.XepLoaiSV("18HCB","CTT001");
+//            d.ThongKeSV("18HCB","CTT001");
+            d.UpdateDiemSV("18HCB","CTT001", "1742001","9","9","9","9");
     }
 }
