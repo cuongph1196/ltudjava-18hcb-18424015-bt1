@@ -27,7 +27,7 @@ public class Diem {
     float DiemTong;
     
     public void ReadFile(String className, String subjectName) throws FileNotFoundException, IOException{
-        String pathInput = "../Data/DIEM_"+ className + "_" + subjectName +".txt";
+        String pathInput = "./database/diem/DIEM_"+ className + "_" + subjectName +".txt";
         BufferedReader br = null;
         try{
         FileReader fr = new FileReader(pathInput);
@@ -46,7 +46,7 @@ public class Diem {
     public void WriteFile(String pathInput, String className, String subjectName) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        String pathOutput = "../Data/DIEM_"+ className+ "_" + subjectName +".txt";
+        String pathOutput = "./database/diem/DIEM_"+ className+ "_" + subjectName +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
@@ -90,7 +90,7 @@ public class Diem {
     
     public void XepLoaiSV(String className, String subjectName) throws IOException{
         BufferedReader br = null;
-        File path = new File("../Data/DIEM_"+ className + "_" + subjectName + ".txt");
+        File path = new File("./database/diem/DIEM_"+ className + "_" + subjectName + ".txt");
         try {
             FileReader fr = new FileReader(path);
             br = new BufferedReader(fr);
@@ -118,7 +118,7 @@ public class Diem {
     
     public void ThongKeSV(String className, String subjectName) throws IOException{
         BufferedReader br = null;
-        File path = new File("../Data/DIEM_"+ className + "_" + subjectName + ".txt");
+        File path = new File("./database/diem/DIEM_"+ className + "_" + subjectName + ".txt");
         try {
             FileReader fr = new FileReader(path);
             br = new BufferedReader(fr);
@@ -155,8 +155,8 @@ public class Diem {
     public void UpdateDiemSV(String className, String subjectName, String MSSV, String GK, String CK, String Orther, String Sum) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        File path = new File("../Data/DIEM_"+ className + "_" + subjectName + ".txt");
-        File path_temp = new File("../Data/DIEM_"+ className + "_" + subjectName + "_Temp.txt");
+        File path = new File("./database/diem/DIEM_"+ className + "_" + subjectName + ".txt");
+        File path_temp = new File("./database/diem/DIEM_"+ className + "_" + subjectName + "_Temp.txt");
         try {
             FileReader fr = new FileReader(path);
             br = new BufferedReader(fr);
@@ -187,6 +187,27 @@ public class Diem {
                 else
                 System.out.println("Failed...");
             }
+        }
+    }
+    
+    public void XemDiem(String className, String subjectName, String MSSV) throws FileNotFoundException, IOException{
+        String pathInput = "./database/diem/DIEM_"+ className + "_" + subjectName +".txt";
+        BufferedReader br = null;
+        try{
+        FileReader fr = new FileReader(pathInput);
+        br = new BufferedReader(fr);
+        String i;
+        System.out.println(br.readLine());
+        while ((i = br.readLine()) != null) {
+            String[] in = i.split(",");
+            if((in[1].equals(MSSV))){
+                System.out.println(i);
+            }
+        }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            br.close();
         }
     }
 }

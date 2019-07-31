@@ -27,7 +27,7 @@ public class Lop_Monhoc {
     String CMND;
     
     public void ReadFile(String className, String subjectName) throws FileNotFoundException, IOException{
-        String pathInput = "../Data/"+ className + "_" + subjectName +".txt";
+        String pathInput = "./database/lop_monhoc/"+ className + "_" + subjectName +".txt";
         BufferedReader br = null;
         try{
         FileReader fr = new FileReader(pathInput);
@@ -43,11 +43,56 @@ public class Lop_Monhoc {
         }
     }
     
+    public void WriteFile(String pathInput, String className, String subjectName) throws IOException{
+        BufferedWriter bw = null;
+        BufferedReader br = null;
+        String pathOutput = "./database/lop_monhoc/"+ className + "_" + subjectName +".txt";
+        try {
+            FileWriter fw = new FileWriter(pathOutput,true);
+            bw = new BufferedWriter(fw);
+            FileReader fr = new FileReader(pathInput);
+            br = new BufferedReader(fr);
+            FileReader frOutput = new FileReader(pathOutput);
+            BufferedReader brOutput = new BufferedReader(frOutput);
+            String i;
+            String a ;
+            String title = brOutput.readLine();
+            if(title != null && !"".equals(title)){
+                br.readLine();
+            }
+            else{
+                bw.write(br.readLine());
+                bw.newLine();
+            }
+            while ((i = br.readLine()) != null) {
+                boolean flag = true;
+                while((a = brOutput.readLine()) != null){
+                    String[] in = i.split(",");
+                    String[] out = a.split(",");
+                    if(in[1].equals(out[1])){
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag == true){
+                    bw.write(i);
+                    bw.newLine();
+                }
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } finally {
+            br.close();
+            bw.close();
+            System.out.println("Success...");
+        }
+    }
+    
     public void DeleteSV(String className, String subjectName, String MSSV) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        File path = new File("../Data/"+ className + "_" + subjectName + ".txt");
-        File path_temp = new File("../Data/"+ className + "_" + subjectName + "_Temp.txt");
+        File path = new File("./database/lop_monhoc/"+ className + "_" + subjectName + ".txt");
+        File path_temp = new File("./database/lop_monhoc/"+ className + "_" + subjectName + "_Temp.txt");
         try {
             FileReader fr = new FileReader(path);
             br = new BufferedReader(fr);
@@ -79,7 +124,7 @@ public class Lop_Monhoc {
     public void AddSVFromKey(String className, String subjectName) throws IOException{
         BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         BufferedWriter bw = null;
-        String path = "../Data/"+ className + "_" + subjectName + ".txt";
+        String path = "./database/lop_monhoc/"+ className + "_" + subjectName + ".txt";
         try {
             FileWriter fw = new FileWriter(path,true);
             bw = new BufferedWriter(fw);

@@ -32,7 +32,7 @@ public class SinhVien {
         return HoTen;
     }
     public void ReadFile(String className) throws FileNotFoundException, IOException{
-        String pathInput = "../Data/"+ className +".txt";
+        String pathInput = "./database/lop/"+ className +".txt";
         BufferedReader br = null;
         try{
         FileReader fr = new FileReader(pathInput);
@@ -50,7 +50,7 @@ public class SinhVien {
     public void WriteFile(String pathInput, String className) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        String pathOutput = "../Data/"+ className +".txt";
+        String pathOutput = "./database/lop/"+ className +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
@@ -95,7 +95,7 @@ public class SinhVien {
     public void WriteFileFromKey(String className) throws IOException{
         BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         BufferedWriter bw = null;
-        String pathOutput = "../Data/"+ className +".txt";
+        String pathOutput = "./database/lop/"+ className +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);

@@ -24,7 +24,7 @@ public class ThoiKhoaBieu {
     String Lop;
     
     public void ReadFile(String className) throws FileNotFoundException, IOException{
-        String pathInput = "../Data/TKB_"+ className +".txt";
+        String pathInput = "./database/tkb/TKB_"+ className +".txt";
         BufferedReader br = null;
         try{
         FileReader fr = new FileReader(pathInput);
@@ -43,7 +43,7 @@ public class ThoiKhoaBieu {
     public void WriteFile(String pathInput, String className) throws IOException{
         BufferedWriter bw = null;
         BufferedReader br = null;
-        String pathOutput = "../Data/TKB_"+ className +".txt";
+        String pathOutput = "./database/tkb/TKB_"+ className +".txt";
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
