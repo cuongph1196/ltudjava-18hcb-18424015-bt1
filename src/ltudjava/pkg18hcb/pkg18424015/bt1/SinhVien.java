@@ -7,11 +7,14 @@ package ltudjava.pkg18hcb.pkg18424015.bt1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -54,8 +57,11 @@ public class SinhVien {
         try {
             FileWriter fw = new FileWriter(pathOutput,true);
             bw = new BufferedWriter(fw);
+//            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(pathOutput), StandardCharsets.UTF_8));
             FileReader fr = new FileReader(pathInput);
             br = new BufferedReader(fr);
+            //br = new BufferedReader(new InputStreamReader(new FileInputStream(pathInput), StandardCharsets.UTF_8));
+            
             FileReader frOutput = new FileReader(pathOutput);
             BufferedReader brOutput = new BufferedReader(frOutput);
             String i;
@@ -69,6 +75,7 @@ public class SinhVien {
                 bw.newLine();
             }
             while ((i = br.readLine()) != null) {
+                System.out.println(i);
                 boolean flag = true;
                 while((a = brOutput.readLine()) != null){
                     String[] in = i.split(",");
